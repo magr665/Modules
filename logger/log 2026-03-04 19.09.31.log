@@ -1,0 +1,9 @@
+2026-03-04 19:09:31 : INFO     : Starting
+2026-03-04 19:09:31 : INFO     : ***** Dette er en stjernebesked *****
+2026-03-04 19:09:31 : INFO     : Dette er en informationsbesked
+2026-03-04 19:09:31 : WARNING  : Dette er en advarselsbesked
+2026-03-04 19:09:31 : ERROR    : Dette er en fejlbesked
+2026-03-04 19:09:31 : CRITICAL : Dette er en kritisk besked
+2026-03-04 19:09:31 : INFO     : Ending
+2026-03-04 19:09:31 : INFO     : Time used : 00:00:00
+2026-03-04 19:09:31 : INFO     : Ended with 1 Warning, 1 Critical and 1 Error
