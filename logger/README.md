@@ -14,7 +14,7 @@ Et Python-loggingsværktøj til administrering af logfiler med flere logningsniv
 
 ## Installation
 
-Placer `logger.py`-filen i dit Python-projektmapppen.
+Placer `logger.py`-filen i dit Python-projektmapppen.  
 eller i den mappe hvor du har andre python moduler og har opsat  
 Path-variablen i system settings til at pege på denne mappe
 
