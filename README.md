@@ -5,7 +5,7 @@ Velkommen til mit Python-moduler-repository. Dette projekt indeholder en samling
 ## Moduler
 
 - Logger
-- Tilføj @SHAPE felt til en geopandas geodataframe, som så kan bruges med arpcy InsertCursor til at overføre data til en SDE FeatureClass
+- Tilføj SHAPE@ felt til en geopandas geodataframe, som så kan bruges med arpcy InsertCursor til at overføre data til en SDE FeatureClass
 
 ## Brug
 
