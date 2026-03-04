@@ -48,8 +48,6 @@ class Logger:
         self.path = path
         if not self.path:
             self.path = os.path.dirname(os.path.abspath(__file__))
-        print(f'Log path: {self.path}')
-        print(f'os.getcwd(): {os.getcwd()}')
         self.start_time = perf_counter()
         self.__warnings = 0
         self.__criticals = 0
