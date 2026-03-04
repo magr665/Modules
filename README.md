@@ -2,9 +2,10 @@
 
 Velkommen til mit Python-moduler-repository. Dette projekt indeholder en samling af genbrugelige Python-moduler designet til at strømline almindelige programmeringsopgaver.
 
-## Funktioner
+## Moduler
 
 - Logger
+- Tilføj @SHAPE felt til en geopandas geodataframe, som så kan bruges med arpcy InsertCursor til at overføre data til en SDE FeatureClass
 
 ## Brug
 
