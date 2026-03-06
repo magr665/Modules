@@ -34,6 +34,7 @@ log.info("Applikation startet")
 log.warning("Dette er en advarsel")
 log.error("En fejl opstod")
 log.critical("Kritisk problem opdaget")
+log.empty("WFS Tema er tomt")
 
 # Afslut logging med samlet statistik
 log.end()
@@ -61,6 +62,7 @@ if log.checklog('all'):
 - `warning(msg)` - Log advarselmeddelelse
 - `error(msg)` - Log fejlmeddelelse
 - `critical(msg)` - Log kritisk meddelelse
+- `empty(msg)` - Log meddelse der fortæller at hentning fra f.eks. en WFS er tom
 - `stars(msg, num=10)` - Log meddelelse med dekorative stjerner
 - `end()` - Afslut logging og vis samlet statistik
 - `checklog(type='all')` - Bekræft logstatus (returnerer True, hvis ingen problemer)
