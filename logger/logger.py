@@ -20,6 +20,7 @@ class Logger:
     - critical: Logger en kritisk besked
     - warning: Logger en advarselsbesked
     - error: Logger en fejlbesked
+    - empty: Logger en besked for manglende features (specielt til WFS)
     - end: Afslutter logningen og skriver en afslutningsbesked samt tidsforbrug
     - endTime: Beregner den forløbne tid siden logningen startede
     """
@@ -52,6 +53,7 @@ class Logger:
         self.__warnings = 0
         self.__criticals = 0
         self.__errors = 0
+        self.__empty = 0
         self.debug = debug
         self.__date_at_end = date_at_end
         self.__filename = filename
@@ -196,6 +198,22 @@ class Logger:
         if self.debug == False:
             self.__errors += 1
 
+    def empty(self, msg: str):
+        """
+        Logger en besked for manglende features.
+
+        Denne metode er en specialiseret version af critical() til at logge manglende features ved hentning via WFS.
+
+        Parametre:
+        ----------
+        msg : str
+            Beskeden, der skal logges som EMPTY for manglende features.
+        """
+        self.msg = f"{self.__get_time()} : EMPTY    : NO FEATURES FOUND: {msg}"
+        self.__write(self.msg)
+        if self.debug == False:
+            self.__empty += 1
+
     def end(self):
         """
         Afslutter logningen og skriver en afslutningsbesked samt tidsforbrug til logfilen.
@@ -219,8 +237,12 @@ class Logger:
              error_txt = 'Error'
         else:
             error_txt = 'Errors'
+        if self.__empty == 1:
+            empty_txt = 'Empty'
+        else:
+            empty_txt = 'Empty'
 
-        msgs.append(f"{self.__get_time()} : INFO     : Ended with {self.__warnings} {warning_txt}, {self.__criticals} {critical_txt} and {self.__errors} {error_txt}")
+        msgs.append(f"{self.__get_time()} : INFO     : Ended with {self.__warnings} {warning_txt}, {self.__criticals} {critical_txt}, {self.__errors} {error_txt} and {self.__empty} {empty_txt}")
         for msg in msgs:
             self.__write(msg)
 
@@ -250,6 +272,8 @@ class Logger:
             True, hvis ingen af de valgte typer er registreret; ellers False.
         """
         self.type = type.lower()
+        if self.type == 'both':
+            self.type = 'all'
         if self.type not in ['criticals', 'warnings', 'errors', 'all']:
             self.critical('Wrong check type')
             return False
@@ -259,7 +283,9 @@ class Logger:
             return False
         elif self.type == 'errors' and self.__errors > 0:
             return False
-        elif self.type == 'all' and (self.__criticals > 0 or self.__warnings > 0 or self.__errors > 0):
+        elif self.type == 'empty' and self.__empty > 0:
+            return False
+        elif self.type == 'all' and (self.__criticals > 0 or self.__warnings > 0 or self.__errors > 0 or self.__empty > 0):
             return False        
         else:
             return True
@@ -274,4 +300,5 @@ if __name__ == "__main__":
     log.warning('Dette er en advarselsbesked')
     log.error('Dette er en fejlbesked')
     log.critical('Dette er en kritisk besked')
+    log.empty('Dette er en besked for manglende features')
     log.end()
