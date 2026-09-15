@@ -89,7 +89,7 @@ class Logger:
             Beskeden, der skal logges.
         """
         self.msg = msg
-        if self.__print == True:
+        if self.__print == True or self.debug == True:
             print(self.msg)
         with open(self.path, 'a', encoding='utf-8') as file:
             file.write(self.msg + '\n')
