@@ -156,6 +156,6 @@ if __name__ == '__main__':
     mailer = Mailer()
     mailer.sendmail(
         subject='Test Email',
-        tos=['mads.borggaard@lemvig.dk'],
+        tos=[],
         text='This is a test email sent from the Mailer class.',
-        bcc=['gis@lemvig.dk'])
+        bcc=[])
