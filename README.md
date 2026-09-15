@@ -26,12 +26,6 @@ En WFS-klient til at hente geografiske data fra WFS-tjenester (version 2.0.0+) s
 
 Se [WFS/README.md](WFS/README.md) for mere information.
 
-## Installation
-
-```bash
-pip install -r requirements.txt
-```
-
 ## Brug
 
 Importer moduler efter behov i dit projekt:
